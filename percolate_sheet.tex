@@ -1,0 +1,99 @@
+\documentclass[landscape, a4paper, parskip=half, DIV=13]{scrartcl}
+\usepackage[top=1.25cm, bottom=1.0cm, left=7cm, right=7cm, marginparwidth=6.0cm, marginparsep=0pt]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{fontspec}
+\setmainfont{Tex Gyre Schola}
+%\setmainfont[Scale=0.95]{Century Gothic}
+\usepackage{contour}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\usepackage{booktabs}
+\usepackage{lipsum}
+\usepackage{marginnote}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{percolate}
+
+%\setkomafont{section}{\setmainfont{Tex Gyre Schola}\LARGE\textbf}
+\setkomafont{section}{\setmainfont[Scale=0.95]{Century Gothic}\LARGE\bfseries}
+
+% Adjust spacing before and after section headings
+\RedeclareSectionCommand[
+  runin=false,
+  beforeskip=1.0\baselineskip,
+  afterskip=0.0\baselineskip
+]{section}
+
+
+\pagestyle{empty}
+\begin{document}
+{
+%\setmainfont[Scale=2.5]{Tex Gyre Schola}
+\setmainfont[Scale=2.5]{Century Gothic}
+\begin{center}
+\Huge \textbf{\phantom{y}Percolate\phantom{y}}
+\end{center}
+}
+\marginnote{\center\reflectbox{\includegraphics[height=2.25cm]{side_ornament.png}}}[-4.0cm]
+\reversemarginpar\marginnote{\center\includegraphics[height=2.25cm]{side_ornament.png}}[-4.0cm]
+
+\vspace{0.0cm}
+\vspace{-0.5cm}
+
+\begin{center}
+\scalebox{2.1627169811320757}{%{2.88}{
+\input{site_grid.tex}
+}
+\normalmarginpar\marginnote{\section*{Gameplay}
+Each round, you will draw a \emph{path} that connects two opposing sides of your board. Your score is the length of your path.
+
+Your path must only traverse empty squares or those with an icon that you circled earlier.
+
+%Your path may not traverse squares that contain one of the icons that you circled earlier.
+
+The first player to finish should \emph{bid} by announcing their score. Then, they should start the timer.
+
+If any other player can find a shorter solution before time expires, they should bid by announcing their score.
+
+Afterwards, the player with the lowest bid should display their solution. Everyone else should verify that their bid is correct.
+
+If so, that player wins the round. If not, the player with the next lowest bid should display their solution. Continue until someone can demonstrate a correct bid. That player wins the round.
+
+Play additional rounds until someone has won three times.
+%
+}[-15.5875cm]
+\reversemarginpar\marginnote{\raggedright\section*{Overview}
+
+Percolate is a simultaneous puzzle-solving game for any number of players which can be played in less than ten minutes.
+
+Each player will need a pencil and a copy of these rules. You will need one 20-sided die and a 10-second sand timer to share.
+
+Each round, one player should roll the die. Everyone should circle the three icons next to the die result on the table below.
+
+\begin{center}
+\raggedright
+\begin{tabular}{c@{\hskip 6pt}c@{\hskip 3pt}c@{\hskip 3pt}c@{\hskip 6pt}c@{\hskip 6pt}c@{\hskip 3pt}c@{\hskip 3pt}c}\toprule
+Die & \multicolumn{3}{c}{Icons\ \ \ \,} & Die & \multicolumn{3}{c}{Icons\ \ \ \,} \\ \midrule
+\phantom{1}1 & \raisebox{-0.25ex}{\drawonestar{}} & \raisebox{-0.25ex}{\drawtwostar{}} & \raisebox{-0.25ex}{\drawthreestar{}} & 11 & \raisebox{-0.25ex}{\drawfourstar{}} & \raisebox{-0.25ex}{\drawfivestar{}} & \raisebox{-0.25ex}{\drawsixstar{}} \\[0.5ex]
+\phantom{1}2 & \raisebox{-0.25ex}{\drawonestar{}} & \raisebox{-0.25ex}{\drawtwostar{}} & \raisebox{-0.25ex}{\drawfourstar{}} & 12 & \raisebox{-0.25ex}{\drawthreestar{}} & \raisebox{-0.25ex}{\drawfivestar{}} & \raisebox{-0.25ex}{\drawsixstar{}} \\[0.5ex]
+\phantom{1}3 & \raisebox{-0.25ex}{\drawonestar{}} & \raisebox{-0.25ex}{\drawtwostar{}} & \raisebox{-0.25ex}{\drawfivestar{}} & 13 & \raisebox{-0.25ex}{\drawthreestar{}} & \raisebox{-0.25ex}{\drawfourstar{}} & \raisebox{-0.25ex}{\drawsixstar{}} \\[0.5ex]
+\phantom{1}4 & \raisebox{-0.25ex}{\drawonestar{}} & \raisebox{-0.25ex}{\drawtwostar{}} & \raisebox{-0.25ex}{\drawsixstar{}} & 14 & \raisebox{-0.25ex}{\drawthreestar{}} & \raisebox{-0.25ex}{\drawfourstar{}} & \raisebox{-0.25ex}{\drawfivestar{}} \\[0.5ex]
+\phantom{1}5 & \raisebox{-0.25ex}{\drawonestar{}} & \raisebox{-0.25ex}{\drawthreestar{}} & \raisebox{-0.25ex}{\drawfourstar{}} & 15 & \raisebox{-0.25ex}{\drawtwostar{}} & \raisebox{-0.25ex}{\drawfivestar{}} & \raisebox{-0.25ex}{\drawsixstar{}} \\[0.5ex]
+\phantom{1}6 & \raisebox{-0.25ex}{\drawonestar{}} & \raisebox{-0.25ex}{\drawthreestar{}} & \raisebox{-0.25ex}{\drawfivestar{}} & 16 & \raisebox{-0.25ex}{\drawtwostar{}} & \raisebox{-0.25ex}{\drawfourstar{}} & \raisebox{-0.25ex}{\drawsixstar{}} \\[0.5ex]
+\phantom{1}7 & \raisebox{-0.25ex}{\drawonestar{}} & \raisebox{-0.25ex}{\drawthreestar{}} & \raisebox{-0.25ex}{\drawsixstar{}} & 17 & \raisebox{-0.25ex}{\drawtwostar{}} & \raisebox{-0.25ex}{\drawfourstar{}} & \raisebox{-0.25ex}{\drawfivestar{}} \\[0.5ex]
+\phantom{1}8 & \raisebox{-0.25ex}{\drawonestar{}} & \raisebox{-0.25ex}{\drawfourstar{}} & \raisebox{-0.25ex}{\drawfivestar{}} & 18 & \raisebox{-0.25ex}{\drawtwostar{}} & \raisebox{-0.25ex}{\drawthreestar{}} & \raisebox{-0.25ex}{\drawsixstar{}} \\[0.5ex]
+\phantom{1}9 & \raisebox{-0.25ex}{\drawonestar{}} & \raisebox{-0.25ex}{\drawfourstar{}} & \raisebox{-0.25ex}{\drawsixstar{}} & 19 & \raisebox{-0.25ex}{\drawtwostar{}} & \raisebox{-0.25ex}{\drawthreestar{}} & \raisebox{-0.25ex}{\drawfivestar{}} \\[0.5ex]
+10 & \raisebox{-0.25ex}{\drawonestar{}} & \raisebox{-0.25ex}{\drawfivestar{}} & \raisebox{-0.25ex}{\drawsixstar{}} & 20 & \raisebox{-0.25ex}{\drawtwostar{}} & \raisebox{-0.25ex}{\drawthreestar{}} & \raisebox{-0.25ex}{\drawfourstar{}} \\ \bottomrule
+\end{tabular}%\ \ \ \ \ 
+\end{center}
+}[-15.5875cm]
+
+\vfill
+
+{\LARGE Designed by Michael Purcell}
+\normalmarginpar\marginnote{\raggedright\textbf{Random Seed}: 587104606}
+\reversemarginpar\marginnote{\raggedright\textbf{Contact}: ttkttkt@gmail.com}
+\end{center}
+\end{document}
