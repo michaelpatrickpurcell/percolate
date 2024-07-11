@@ -12,9 +12,15 @@ from pylatex import Package, Command
 from pylatex.utils import italic, bold, NoEscape
 from pylatex.basic import NewLine
 
+n_colors = 16
+n_copies = 16
+
+n_copies_real=36
+n_real=n_copies_real
+
 def generate_locations(seed=None):
-    n_colors = 8
-    n_copies = 8
+    # n_colors = 16#8
+    # n_copies = 16#8
 
     # locations = [0.33 * (np.array([i,j]) - 3.5) for i in range(n_colors) for j in range(n_copies)]
 
@@ -31,8 +37,7 @@ def generate_locations(seed=None):
         np.random.shuffle(shuffled_indices)
 
         n_colors_real = 6
-        n_copies_real = 10
-        labels = [1,2,3,4,5,6,0,0]
+        labels = [1,2,3,4,5,6] + (n_colors - n_colors_real)*[0]
         g = nx.Graph()
         for i in range(n_colors_real):
             for j in range(n_copies_real):
@@ -97,13 +102,12 @@ def generate_electorate_grid(locations):
     # color_list = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple']
     color_list = ['black'] * 6
 
-    n_real = 10
-
     pic = tikz.Picture()
     pic.usetikzlibrary('shapes.geometric')
 
-    x_locs = np.arange(-1.155, 1.16, 0.33/8)
-    y_locs = np.arange(-1.155, 1.16, 0.33)
+    temp = 0.33*(n_colors-1)/2
+    x_locs = np.arange(-temp, temp+0.01, 0.33/8)
+    y_locs = np.arange(-temp, temp+0.01, 0.33)
     dot_locations = product(x_locs, y_locs)
     for i,j in dot_locations:
         point = '(%fin, %fin)' % (i,j)
@@ -148,7 +152,7 @@ def generate_electorate_grid(locations):
         pic.node(r'\phantom{.}', at=point, minimum_width='0.165in', minimum_height='0.165in', draw=True, fill='white')#, fill=color_list[5])
         pic.node(r'\phantom{.}', at=point, regular_polygon=True, regular_polygon_sides=6, fill=color_list[5], inner_sep='3.2pt', scale=0.5, transform_shape=True)
 
-    for location in locations[6*n_real:64]:
+    for location in locations[6*n_real:(n_colors*n_copies)]:
         point = '(%fin, %fin)' % (location[0], location[1])
         pic.node(r'\phantom{.}', at=point, minimum_width='0.165in', minimum_height='0.165in', draw=True, fill='white')#, fill=color_list[5])
 

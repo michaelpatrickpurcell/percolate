@@ -1,0 +1,59 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+
+\tikzset{dieface/.pic={
+	\node[draw, minimum width=10mm, inner sep=0pt, minimum height=10mm] at (0,0) {};
+	\node at (0,0) {\includegraphics[scale=0.5]{Images/#1_icon.png}};
+}}
+
+\begin{document}
+\scalebox{1.5}{
+\begin{tikzpicture}
+%\path (-105mm, -148.5mm) -- (105mm, 148.5mm);
+\pic at (-40mm, 40mm) {dieface={circle}};
+\pic at (-24mm, 40mm) {dieface={cross}};
+\pic at (-8mm, 40mm) {dieface={triangle}};
+\pic at (8mm, 40mm) {dieface={diamond}};
+\pic at (24mm, 40mm) {dieface={star}};
+\pic at (40mm, 40mm) {dieface={hex}};
+
+\pic at (-40mm,24mm) {dieface={circle}};
+\pic at (-24mm, 24mm) {dieface={cross}};
+\pic at (-8mm, 24mm) {dieface={triangle}};
+\pic at (8mm, 24mm) {dieface={diamond}};
+\pic at (24mm, 24mm) {dieface={star}};
+\pic at (40mm, 24mm) {dieface={hex}};
+
+
+\pic at (-40mm, 8mm) {dieface={circle}};
+\pic at (-24mm, 8mm) {dieface={cross}};
+\pic at (-8mm, 8mm) {dieface={triangle}};
+\pic at (8mm, 8mm) {dieface={diamond}};
+\pic at (24mm, 8mm) {dieface={star}};
+\pic at (40mm, 8mm) {dieface={hex}};
+
+\pic at (-40mm, -8mm) {dieface={circle}};
+\pic at (-24mm, -8mm) {dieface={cross}};
+\pic at (-8mm, -8mm) {dieface={triangle}};
+\pic at (8mm, -8mm) {dieface={diamond}};
+\pic at (24mm, -8mm) {dieface={star}};
+\pic at (40mm, -8mm) {dieface={hex}};
+
+\pic at (-40mm, -24mm) {dieface={circle}};
+\pic at (-24mm, -24mm) {dieface={cross}};
+\pic at (-8mm, -24mm) {dieface={triangle}};
+\pic at (8mm, -24mm) {dieface={diamond}};
+\pic at (24mm, -24mm) {dieface={star}};
+\pic at (40mm, -24mm) {dieface={hex}};
+
+\pic at (-40mm, -40mm) {dieface={circle}};
+\pic at (-24mm, -40mm) {dieface={cross}};
+\pic at (-8mm, -40mm) {dieface={triangle}};
+\pic at (8mm, -40mm) {dieface={diamond}};
+\pic at (24mm, -40mm) {dieface={star}};
+\pic at (40mm, -40mm) {dieface={hex}};
+
+\end{tikzpicture}
+}
+\end{document}
